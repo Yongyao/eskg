@@ -1,8 +1,9 @@
 # eskg
 
+[![license](https://img.shields.io/github/license/ESIPFed/eskg.svg?maxAge=2592000?style=plastic)](http://www.apache.org/licenses/LICENSE-2.0)
+[![Build Status](https://travis-ci.org/ESIPFed/eskg.svg?branch=master)](https://travis-ci.org/ESIPFed/eskg)
+
 <img src="http://www.esipfed.org/sites/default/files/esip-logo.png" align="right" width="300" />
-<a href="http://esipfed.org">![](http://badge.esipfed.org/testbed.svg?display=logo)</a>
-<a href="http://wiki.esipfed.org/index.php/Semantic_Technologies">![](http://badge.esipfed.org/semanticweb.svg?display=logo)</a>
 
 # Introduction
 

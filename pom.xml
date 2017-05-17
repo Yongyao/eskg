@@ -49,6 +49,14 @@
         <enabled>true</enabled>
       </snapshots>
     </repository>
+    <repository>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+      <id>bintray-allenai-maven</id>
+      <name>bintray</name>
+      <url>http://allenai.bintray.com/maven</url>
+    </repository>
   </repositories>
 
   <scm>
@@ -152,6 +160,19 @@
 
     <plugins>
       <plugin>
+        <groupId>org.jvnet.jaxb2.maven2</groupId>
+        <artifactId>maven-jaxb2-plugin</artifactId>
+        <version>0.13.1</version>
+          <executions>
+            <execution>
+              <id>generate</id>
+              <goals>
+                <goal>generate</goal>
+              </goals>
+            </execution>
+          </executions>
+        </plugin>
+      <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-jar-plugin</artifactId>
         <version>${maven-jar-plugin.version}</version>
@@ -207,7 +228,7 @@
           <bundledSignatures>
             <bundledSignature>jdk-unsafe</bundledSignature>
             <bundledSignature>jdk-deprecated</bundledSignature>
-            <bundledSignature>jdk-system-out</bundledSignature>
+            <!--bundledSignature>jdk-system-out</bundledSignature-->
             <!--bundledSignature>commons-io-unsafe-${commons-io.version}</bundledSignature -->
           </bundledSignatures>
         </configuration>
@@ -308,6 +329,7 @@
   </profiles>
 
   <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <!-- Dependencies -->
 
     <junit.version>4.7</junit.version>
@@ -335,6 +357,7 @@
     <skipTests>false</skipTests>
     <assembly.finalName>${project.build.finalName}</assembly.finalName>
     <slf4j.version>1.7.22</slf4j.version>
+    <jena.version>3.2.0</jena.version>
   </properties>
   <dependencies>
 
@@ -361,6 +384,18 @@
       <artifactId>commons-io</artifactId>
       <version>1.3.2</version>
       <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.jdom</groupId>
+      <artifactId>jdom2</artifactId>
+     <version>2.0.6</version>
+     <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.jena</groupId>
+      <artifactId>apache-jena-libs</artifactId>
+      <type>pom</type>
+      <version>${jena.version}</version>
     </dependency>
 
     <!-- OpenIE -->
@@ -427,26 +462,5 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
-  
-  <!-- dependencyManagement>
-  <dependencies>
-      <dependency>
-      <groupId>org.allenai.openie</groupId>
-      <artifactId>openie_2.11</artifactId>
-      <version>4.2.6</version>
-      <scope>compile</scope>
-      <type>pom</type>
-      <exclusions>
-        <exclusion>
-          <groupId>ch.qos.logback</groupId>
-          <artifactId>logback-classic</artifactId>
-        </exclusion>
-        <exclusion>
-          <groupId>ch.qos.logback</groupId>
-          <artifactId>logback-core</artifactId>
-        </exclusion>
-      </exclusions>
-    </dependency>
-    </dependencies>
-  </dependencyManagement-->
+
 </project>
